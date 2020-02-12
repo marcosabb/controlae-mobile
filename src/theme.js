@@ -1,11 +1,11 @@
 export default {
   colors: {
     background: '#f6f8fa',
-
+    text: '',
     white: '#fff',
-
     red: 'red',
-
+    blue: '#3846DC',
+    grey: '#333',
     lightGrey: '#f5f7f9'
   },
 

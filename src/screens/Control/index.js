@@ -66,7 +66,6 @@ export default function Control () {
 
         <Row>
           <Button name='more' />
-
           <Button name='mute' />
         </Row>
       </Wrapper>
