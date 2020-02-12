@@ -1,37 +1,42 @@
 import styled from 'styled-components/native'
-import { ifProp, prop } from 'styled-tools'
+import LinearGradient from 'react-native-linear-gradient'
+import { Dimensions } from 'react-native'
+import { prop } from 'styled-tools'
 import { RectButton } from 'react-native-gesture-handler'
+
+const width = (Dimensions.get('window').width / 2) - 30
 
 export const Container = styled.FlatList.attrs({
   numColumns: 2,
-  showsVerticalScrollIndicator: false
-})`
-  padding: ${prop('theme.spacing.default')} 10px;
-`
-
-export const Item = styled(RectButton).attrs({
-  underlayColor: 'red'
+  showsVerticalScrollIndicator: false,
+  columnWrapperStyle: {
+    justifyContent: 'space-between'
+  }
 })`
   flex: 1;
-  align-items: center;
-  justify-content: center;
-  height: 120px;
-  margin: 0 ${prop('theme.spacing.xs')} ${prop('theme.spacing.sm')};
-  background: ${ifProp('disabled', 'rgba(0, 0, 0, .04)', prop('theme.colors.white'))};
+  padding: ${prop('theme.spacing.default')};
+`
+
+export const Item = styled(LinearGradient).attrs(({ gradient }) => ({
+  colors: gradient
+}))`
+  width: ${width}px;
+  height: 200px;
+  margin-bottom: ${prop('theme.spacing.default')};
   border-radius: ${prop('theme.radius.default')};
 `
 
-export const Icon = styled.View`
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  margin-bottom: ${prop('theme.spacing.sm')};
-  background: ${prop('theme.colors.lightGrey')};
-  border-radius: 25px;
+export const Wrapper = styled(RectButton)`
+  flex: 1;
+  padding: ${prop('theme.spacing.default')};
+  background: rgba(0, 0, 0, 0.01);
+  border-radius: ${prop('theme.radius.default')};
 `
 
-export const Name = styled.Text`
-  font-size: 14px;
-  color: ${prop('theme.colors.grey')};
+export const Name = styled.Text.attrs({
+  textBreakStrategy: 'simple'
+})`
+  font-size: 16px;
+  font-weight: bold;
+  color: ${prop('theme.colors.white')};
 `

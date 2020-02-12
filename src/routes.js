@@ -11,7 +11,7 @@ const Stack = createStackNavigator()
 export default function Routes () {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Brands'>
+      <Stack.Navigator initialRouteName='Devices'>
         <Stack.Screen name='Devices' component={Devices} />
         <Stack.Screen name='Brands' component={Brands} />
         <Stack.Screen name='Control' component={Control} />
