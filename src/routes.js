@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Feather'
 import { StatusBar } from 'react-native'
 import { ThemeContext } from 'styled-components'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
 
 import Devices from '~/screens/Devices'
 import Brands from '~/screens/Brands'
@@ -52,14 +52,16 @@ export default function Routes () {
         <Stack.Screen
           name='Brands'
           options={{
-            title: 'Marcas'
+            title: 'Marcas',
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
           }}
           component={Brands}
         />
         <Stack.Screen
           name='Control'
           options={{
-            title: 'Controle'
+            title: 'Controle',
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
           }}
           component={Control}
         />

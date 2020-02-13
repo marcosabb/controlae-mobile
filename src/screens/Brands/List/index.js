@@ -1,4 +1,5 @@
 import React from 'react'
+import t from 'prop-types'
 
 import { Container, Button, Wrapper, Name } from './styled'
 
@@ -29,7 +30,7 @@ const data = [
   { id: 24, name: 'CCE' }
 ]
 
-export default function List () {
+export default function List ({ handleNavigate }) {
   return (
     <Container
       data={data}
@@ -38,7 +39,7 @@ export default function List () {
         const { name } = item
 
         return (
-          <Button>
+          <Button onPress={handleNavigate}>
             <Wrapper>
               <Name>{name}</Name>
             </Wrapper>
@@ -47,4 +48,8 @@ export default function List () {
       }}
     />
   )
+}
+
+List.propTypes = {
+  handleNavigate: t.func.isRequired
 }
