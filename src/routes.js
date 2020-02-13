@@ -35,7 +35,8 @@ export default function Routes () {
           },
           headerTitleStyle: {
             fontSize: 24,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            color: theme.colors.text
           },
           headerTitleAlign: 'center',
           headerBackImage: Back

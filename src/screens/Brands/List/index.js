@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container, Item, Name } from './styled'
+import { Container, Button, Wrapper, Name } from './styled'
 
 const data = [
   { id: 1, name: 'Samsung' },
@@ -38,9 +38,11 @@ export default function List () {
         const { name } = item
 
         return (
-          <Item>
-            <Name>{name}</Name>
-          </Item>
+          <Button>
+            <Wrapper>
+              <Name>{name}</Name>
+            </Wrapper>
+          </Button>
         )
       }}
     />

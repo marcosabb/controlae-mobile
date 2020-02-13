@@ -1,7 +1,7 @@
 import React from 'react'
 import t from 'prop-types'
 
-import { Container, Item, Wrapper, Name } from './styled'
+import { Container, Item, Button, Gradient, Name } from './styled'
 
 const data = [
   {
@@ -29,10 +29,12 @@ export default function List ({ handleNavigate }) {
       renderItem={({ item }) => {
         const { gradient, name } = item
         return (
-          <Item gradient={gradient}>
-            <Wrapper onPress={handleNavigate}>
-              <Name>{name}</Name>
-            </Wrapper>
+          <Item>
+            <Button onPress={handleNavigate}>
+              <Gradient gradient={gradient}>
+                <Name>{name}</Name>
+              </Gradient>
+            </Button>
           </Item>
         )
       }}

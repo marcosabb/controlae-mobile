@@ -1,11 +1,15 @@
 export default {
   colors: {
-    background: '#f6f8fa',
-    text: '',
+    background: '#fff',
+    text: '#171822',
+    ripple: 'rgba(23, 24, 34, .08)',
+
+    grey: '#f1f3f6',
+
     white: '#fff',
     red: 'red',
     blue: '#3846DC',
-    grey: '#333',
+    // grey: '#333',
     lightGrey: '#f5f7f9'
   },
 

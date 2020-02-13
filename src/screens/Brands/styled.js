@@ -3,6 +3,6 @@ import { prop } from 'styled-tools'
 
 export const Container = styled.View`
   flex: 1;
-  padding: ${prop('theme.spacing.default')} 0;
+  padding-top: ${prop('theme.spacing.default')};
   background: ${prop('theme.colors.background')};
 `

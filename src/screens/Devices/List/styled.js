@@ -1,8 +1,7 @@
 import styled from 'styled-components/native'
 import LinearGradient from 'react-native-linear-gradient'
-import { Dimensions } from 'react-native'
+import { Dimensions, TouchableNativeFeedback } from 'react-native'
 import { prop } from 'styled-tools'
-import { RectButton } from 'react-native-gesture-handler'
 
 const width = (Dimensions.get('window').width / 2) - 30
 
@@ -17,19 +16,24 @@ export const Container = styled.FlatList.attrs({
   padding: ${prop('theme.spacing.default')};
 `
 
-export const Item = styled(LinearGradient).attrs(({ gradient }) => ({
-  colors: gradient
-}))`
+export const Item = styled.View`
   width: ${width}px;
   height: 200px;
   margin-bottom: ${prop('theme.spacing.default')};
   border-radius: ${prop('theme.radius.default')};
+  overflow: hidden;
 `
 
-export const Wrapper = styled(RectButton)`
+export const Button = styled.TouchableNativeFeedback.attrs(({ theme }) => ({
+  background: TouchableNativeFeedback.Ripple(theme.colors.ripple, true),
+  useForeground: true
+}))``
+
+export const Gradient = styled(LinearGradient).attrs(({ gradient }) => ({
+  colors: gradient
+}))`
   flex: 1;
   padding: ${prop('theme.spacing.default')};
-  background: rgba(0, 0, 0, 0.01);
   border-radius: ${prop('theme.radius.default')};
 `
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import t from 'prop-types'
 
-import Iconset from '~/components/Iconset'
+// import Iconset from '~/components/Iconset'
 
 import { Container } from './styled'
 
@@ -25,15 +25,15 @@ const icons = {
 }
 
 export default function Button ({ name, children }) {
-  const [icon, set] = icons[name] || []
+  // const [icon, set] = icons[name] || []
 
   console.log(icons[name])
 
-  const Icon = Iconset[set]
+  // const Icon = Iconset[set]
 
   return (
     <Container>
-      {name && <Icon name={icon} size={24} />}
+      {/* {name && <Icon name={icon} size={24} />} */}
       {children}
     </Container>
   )
