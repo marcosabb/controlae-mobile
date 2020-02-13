@@ -3,6 +3,7 @@ export default {
     background: '#fff',
     text: '#171822',
     ripple: 'rgba(23, 24, 34, .08)',
+    placeholder: 'rgba(23, 24, 34, .5)',
 
     grey: '#f1f3f6',
 

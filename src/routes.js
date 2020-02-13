@@ -42,9 +42,27 @@ export default function Routes () {
           headerBackImage: Back
         }}
       >
-        <Stack.Screen name='Devices' component={Devices} />
-        <Stack.Screen name='Brands' component={Brands} />
-        <Stack.Screen name='Control' component={Control} />
+        <Stack.Screen
+          name='Devices'
+          options={{
+            title: 'Dispositivos'
+          }}
+          component={Devices}
+        />
+        <Stack.Screen
+          name='Brands'
+          options={{
+            title: 'Marcas'
+          }}
+          component={Brands}
+        />
+        <Stack.Screen
+          name='Control'
+          options={{
+            title: 'Controle'
+          }}
+          component={Control}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
