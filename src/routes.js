@@ -1,4 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import t from 'prop-types'
+import Icon from 'react-native-vector-icons/Feather'
+import { StatusBar } from 'react-native'
+import { ThemeContext } from 'styled-components'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -8,14 +12,43 @@ import Control from '~/screens/Control'
 
 const Stack = createStackNavigator()
 
+function Back ({ tintColor }) {
+  return <Icon name='chevron-left' size={26} color={tintColor} />
+}
+
 export default function Routes () {
+  const theme = useContext(ThemeContext)
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Devices'>
+      <StatusBar
+        backgroundColor={theme.colors.background}
+        barStyle='dark-content'
+      />
+
+      <Stack.Navigator
+        initialRouteName='Devices'
+        screenOptions={{
+          headerStyle: {
+            elevation: 0,
+            backgroundColor: theme.colors.background
+          },
+          headerTitleStyle: {
+            fontSize: 24,
+            fontWeight: 'bold'
+          },
+          headerTitleAlign: 'center',
+          headerBackImage: Back
+        }}
+      >
         <Stack.Screen name='Devices' component={Devices} />
         <Stack.Screen name='Brands' component={Brands} />
         <Stack.Screen name='Control' component={Control} />
       </Stack.Navigator>
     </NavigationContainer>
   )
+}
+
+Back.propTypes = {
+  tintColor: t.string.isRequired
 }

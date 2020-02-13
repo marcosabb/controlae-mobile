@@ -1,4 +1,5 @@
 import React from 'react'
+import t from 'prop-types'
 
 import { Container, Item, Wrapper, Name } from './styled'
 
@@ -20,7 +21,7 @@ const data = [
   }
 ]
 
-export default function List () {
+export default function List ({ handleNavigate }) {
   return (
     <Container
       data={data}
@@ -29,7 +30,7 @@ export default function List () {
         const { gradient, name } = item
         return (
           <Item gradient={gradient}>
-            <Wrapper>
+            <Wrapper onPress={handleNavigate}>
               <Name>{name}</Name>
             </Wrapper>
           </Item>
@@ -37,4 +38,8 @@ export default function List () {
       }}
     />
   )
+}
+
+List.propTypes = {
+  handleNavigate: t.func.isRequired
 }
