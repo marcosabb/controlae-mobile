@@ -7,7 +7,7 @@ const data = [
   {
     id: 1,
     name: 'Televisão',
-    gradient: ['#d66d75', '#e29587']
+    gradient: ['#1e3c72', '#2a5298']
   },
   {
     id: 2,
@@ -18,6 +18,16 @@ const data = [
     id: 3,
     name: 'Ventilador',
     gradient: ['#48b1bf', '#06beb6']
+  },
+  {
+    id: 4,
+    name: 'Smart Box',
+    gradient: ['#29323c', '#485563']
+  },
+  {
+    id: 5,
+    name: 'Receptor A/V',
+    gradient: ['#ff758c', '#ff7eb3']
   }
 ]
 

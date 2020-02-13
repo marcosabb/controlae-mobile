@@ -8,12 +8,16 @@ const width = (Dimensions.get('window').width / 2) - 30
 export const Container = styled.FlatList.attrs({
   numColumns: 2,
   showsVerticalScrollIndicator: false,
+  contentContainerStyle: {
+    paddingTop: 20
+  },
   columnWrapperStyle: {
     justifyContent: 'space-between'
   }
 })`
   flex: 1;
-  padding: ${prop('theme.spacing.default')};
+  padding-left: ${prop('theme.spacing.default')};
+  padding-right: ${prop('theme.spacing.default')};
 `
 
 export const Item = styled.View`
