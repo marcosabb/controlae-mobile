@@ -39,7 +39,8 @@ export default function Routes () {
             color: theme.colors.text
           },
           headerTitleAlign: 'center',
-          headerBackImage: Back
+          headerBackImage: Back,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
         }}
       >
         <Stack.Screen
@@ -51,18 +52,12 @@ export default function Routes () {
         />
         <Stack.Screen
           name='Brands'
-          options={{
-            title: 'Marcas',
-            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
-          }}
+          options={{ title: 'Marcas' }}
           component={Brands}
         />
         <Stack.Screen
           name='Control'
-          options={{
-            title: 'Controle',
-            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
-          }}
+          options={{ title: 'Controle' }}
           component={Control}
         />
       </Stack.Navigator>

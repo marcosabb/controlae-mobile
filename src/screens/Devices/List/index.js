@@ -1,7 +1,10 @@
 import React from 'react'
 import t from 'prop-types'
+import { Dimensions } from 'react-native'
 
-import { Container, Item, Button, Gradient, Name } from './styled'
+import Ripple from '~/components/Ripple'
+
+import { Container, Gradient, Name } from './styled'
 
 const data = [
   {
@@ -31,6 +34,9 @@ const data = [
   }
 ]
 
+const offset = 30
+const width = (Dimensions.get('window').width / 2) - offset
+
 export default function List ({ handleNavigate }) {
   return (
     <Container
@@ -38,14 +44,19 @@ export default function List ({ handleNavigate }) {
       keyExtractor={item => String(item.id)}
       renderItem={({ item }) => {
         const { gradient, name } = item
+
         return (
-          <Item>
-            <Button onPress={handleNavigate}>
-              <Gradient gradient={gradient}>
-                <Name>{name}</Name>
-              </Gradient>
-            </Button>
-          </Item>
+          <Ripple
+            onPress={handleNavigate}
+            width={width}
+            height={200}
+            radius={16}
+            marginBottom={20}
+          >
+            <Gradient gradient={gradient}>
+              <Name>{name}</Name>
+            </Gradient>
+          </Ripple>
         )
       }}
     />
