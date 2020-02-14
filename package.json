@@ -24,7 +24,8 @@
     "react-native-screens": "^2.0.0-beta.2",
     "react-native-vector-icons": "^6.6.0",
     "styled-components": "^5.0.1",
-    "styled-tools": "^1.7.1"
+    "styled-tools": "^1.7.1",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

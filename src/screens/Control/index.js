@@ -1,74 +1,139 @@
 import React from 'react'
+import { v4 } from 'uuid'
 
-import Button from './Button'
+import { Button, Grouped, Rounded } from './Buttons'
 
-import { Container, Wrapper, Row, Group, Rounded, Item, Label } from './styled'
+import { Container, Row } from './styled'
+
+const data = [
+  {
+    id: v4(),
+    buttons: [
+      { id: v4(), type: 'button', icon: 'power', action: () => {} },
+      { id: v4(), type: 'button', icon: 'tv', action: () => {} },
+      { id: v4(), type: 'button', icon: 'menu', action: () => {} }
+    ]
+  },
+  {
+    id: v4(),
+    buttons: [
+      { id: v4(), type: 'button', icon: 'home', action: () => {} },
+      { id: v4(), type: 'button', icon: 'info', action: () => {} },
+      { id: v4(), type: 'button', icon: 'corner-down-left', action: () => {} }
+    ]
+  },
+  {
+    id: v4(),
+    buttons: [
+      {
+        id: v4(),
+        type: 'rounded',
+        buttons: {
+          up: {
+            action: () => {},
+            icon: 'chevron-up'
+          },
+          right: {
+            action: () => {},
+            icon: 'chevron-right'
+          },
+          down: {
+            action: () => {},
+            icon: 'chevron-down'
+          },
+          left: {
+            action: () => {},
+            icon: 'chevron-left'
+          },
+          center: {
+            action: () => {},
+            label: 'ok'
+          }
+        }
+      }
+    ]
+  },
+  {
+    id: v4(),
+    buttons: [
+      {
+        id: v4(),
+        type: 'grouped',
+        label: 'ch',
+        buttons: {
+          up: {
+            action: () => {},
+            icon: 'chevron-up'
+          },
+          down: {
+            action: () => {},
+            icon: 'chevron-down'
+          }
+        }
+      },
+      {
+        id: v4(),
+        type: 'grouped',
+        label: 'vol',
+        buttons: {
+          up: {
+            action: () => {},
+            icon: 'plus'
+          },
+          down: {
+            action: () => {},
+            icon: 'minus'
+          }
+        }
+      }
+    ]
+  },
+  {
+    id: v4(),
+    buttons: [
+      { id: v4(), type: 'button', icon: 'more-horizontal', action: () => {} },
+      { id: v4(), type: 'button', icon: 'volume-x', action: () => {} }
+    ]
+  }
+]
 
 export default function Control () {
   return (
     <Container>
-      <Wrapper>
-        <Row>
-          <Button name='power' />
+      {data.map(({ id, buttons }) => (
+        <Row key={id}>
+          {buttons.map(button => {
+            if (button.type === 'button') {
+              return (
+                <Button
+                  key={button.id}
+                  icon={button.icon}
+                  onPress={() => { button.action() }}
+                />
+              )
+            }
 
-          <Button name='play' />
+            if (button.type === 'rounded') {
+              return (
+                <Rounded
+                  key={button.id}
+                  buttons={button.buttons}
+                />
+              )
+            }
 
-          <Button name='menu' />
+            if (button.type === 'grouped') {
+              return (
+                <Grouped
+                  key={button.id}
+                  label={button.label}
+                  buttons={button.buttons}
+                />
+              )
+            }
+          })}
         </Row>
-
-        <Row>
-          <Button name='disc' />
-
-          <Button name='info' />
-
-          <Button name='back' />
-        </Row>
-
-        <Row>
-          <Group>
-            <Button name='channelup' />
-
-            <Label>CH</Label>
-
-            <Button name='channeldown' />
-          </Group>
-
-          <Group>
-            <Button name='volumeup' />
-
-            <Label>VOL</Label>
-
-            <Button name='volumedown' />
-          </Group>
-        </Row>
-
-        <Row>
-          <Rounded>
-            <Item>
-              <Button name='up' />
-            </Item>
-
-            <Item>
-              <Button name='left' />
-
-              <Button>
-                <Label>OK</Label>
-              </Button>
-
-              <Button name='right' />
-            </Item>
-
-            <Item>
-              <Button name='down' />
-            </Item>
-          </Rounded>
-        </Row>
-
-        <Row>
-          <Button name='more' />
-          <Button name='mute' />
-        </Row>
-      </Wrapper>
+      ))}
     </Container>
   )
 }
