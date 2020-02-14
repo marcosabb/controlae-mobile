@@ -18,6 +18,8 @@ const size = 56
 export function Button ({ icon, label, onPress }) {
   const theme = useContext(ThemeContext)
 
+  const color = icon === 'power' ? theme.colors.danger : theme.colors.text
+
   return (
     <Ripple
       width={size}
@@ -26,7 +28,7 @@ export function Button ({ icon, label, onPress }) {
       onPress={onPress}
     >
       <Wrapper>
-        {icon && <Icon name={icon} size={20} color={theme.colors.text} />}
+        {icon && <Icon name={icon} size={20} color={color} />}
         {label && <Label>{label}</Label>}
       </Wrapper>
     </Ripple>
