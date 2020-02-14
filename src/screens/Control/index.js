@@ -1,15 +1,21 @@
 import React from 'react'
 import { v4 } from 'uuid'
 
+import { transmit } from '~/services/infrared'
+
 import { Button, Grouped, Rounded } from './Buttons'
 
 import { Container, Row } from './styled'
+
+console.log(transmit)
+
+const power = '0000 006d 0022 0003 00a9 00a8 0015 003f 0015 003f 0015 003f 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 003f 0015 003f 0015 003f 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 003f 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0040 0015 0015 0015 003f 0015 003f 0015 003f 0015 003f 0015 003f 0015 003f 0015 0702 00a9 00a8 0015 0015 0015 0e6e'
 
 const data = [
   {
     id: v4(),
     buttons: [
-      { id: v4(), type: 'button', icon: 'power', action: () => {} },
+      { id: v4(), type: 'button', icon: 'power', action: () => transmit(power) },
       { id: v4(), type: 'button', icon: 'tv', action: () => {} },
       { id: v4(), type: 'button', icon: 'menu', action: () => {} }
     ]
