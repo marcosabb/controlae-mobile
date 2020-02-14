@@ -1,6 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import t from 'prop-types'
-import Icon from 'react-native-vector-icons/Feather'
 import changeNavigationBarColor from 'react-native-navigation-bar-color'
 import { StatusBar } from 'react-native'
 import { ThemeContext } from 'styled-components'
@@ -11,24 +9,24 @@ import Devices from '~/screens/Devices'
 import Brands from '~/screens/Brands'
 import Control from '~/screens/Control'
 
-const Stack = createStackNavigator()
+import Back from './Back'
+import Toggle from './Toggle'
 
-function Back ({ tintColor }) {
-  return <Icon name='chevron-left' size={26} color={tintColor} />
-}
+const Stack = createStackNavigator()
 
 export default function Routes () {
   const theme = useContext(ThemeContext)
 
   useEffect(() => {
-    changeNavigationBarColor('white', true)
+    changeNavigationBarColor('#171822', true)
   }, [])
 
   return (
     <NavigationContainer>
       <StatusBar
         backgroundColor={theme.colors.background}
-        barStyle='dark-content'
+        // barStyle='dark-content'
+        barStyle='light-content'
       />
 
       <Stack.Navigator
@@ -47,6 +45,7 @@ export default function Routes () {
           headerBackImage: Back,
           headerTintColor: theme.colors.text,
           headerPressColorAndroid: theme.colors.ripple,
+          headerRight: Toggle,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
         }}
       >
@@ -68,8 +67,4 @@ export default function Routes () {
       </Stack.Navigator>
     </NavigationContainer>
   )
-}
-
-Back.propTypes = {
-  tintColor: t.string.isRequired
 }

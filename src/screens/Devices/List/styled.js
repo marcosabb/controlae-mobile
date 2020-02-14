@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 import LinearGradient from 'react-native-linear-gradient'
-import { prop } from 'styled-tools'
+import { theme } from 'styled-tools'
 
 export const Container = styled.FlatList.attrs({
   numColumns: 2,
@@ -13,15 +13,15 @@ export const Container = styled.FlatList.attrs({
   }
 })`
   flex: 1;
-  padding-left: ${prop('theme.spacing.default')};
-  padding-right: ${prop('theme.spacing.default')};
+  padding-left: ${theme('spacing.default')};
+  padding-right: ${theme('spacing.default')};
 `
 
 export const Gradient = styled(LinearGradient).attrs(({ gradient }) => ({
   colors: gradient
 }))`
   flex: 1;
-  padding: ${prop('theme.spacing.default')};
+  padding: ${theme('spacing.default')};
 `
 
 export const Name = styled.Text.attrs({
@@ -29,5 +29,5 @@ export const Name = styled.Text.attrs({
 })`
   font-size: 16px;
   font-weight: bold;
-  color: ${prop('theme.colors.white')};
+  color: ${theme('colors.white')};
 `

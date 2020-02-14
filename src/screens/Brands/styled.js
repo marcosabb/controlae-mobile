@@ -1,8 +1,8 @@
 import styled from 'styled-components/native'
-import { prop } from 'styled-tools'
+import { theme } from 'styled-tools'
 
 export const Container = styled.View`
   flex: 1;
-  padding-top: ${prop('theme.spacing.default')};
-  background: ${prop('theme.colors.background')};
+  padding-top: ${theme('spacing.default')};
+  background: ${theme('colors.background')};
 `

@@ -1,11 +1,11 @@
 import styled from 'styled-components/native'
-import { prop } from 'styled-tools'
+import { theme } from 'styled-tools'
 
 export const Container = styled.View`
   flex: 1;
   justify-content: space-between;
-  padding: ${prop('theme.spacing.default')} ${prop('theme.spacing.lg')};
-  background: ${prop('theme.colors.background')};
+  padding: ${theme('spacing.default')};
+  background: ${theme('colors.background')};
 `
 
 export const Row = styled.View`
