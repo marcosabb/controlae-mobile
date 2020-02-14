@@ -5,7 +5,7 @@ export const Container = styled.View`
   flex: 1;
   justify-content: space-between;
   padding: ${prop('theme.spacing.default')} ${prop('theme.spacing.lg')};
-  background: ${prop('theme.colors.white')};
+  background: ${prop('theme.colors.background')};
 `
 
 export const Row = styled.View`
