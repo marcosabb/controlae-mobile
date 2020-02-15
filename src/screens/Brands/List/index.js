@@ -5,21 +5,17 @@ import Ripple from '~/components/Ripple'
 
 import { Container, Content, Name } from './styled'
 
-const data = [
-  { id: 1, name: 'Samsung' }
-]
-
-export default function List ({ handleNavigate }) {
+export default function List ({ data, handleNavigate }) {
   return (
     <Container
       data={data}
       keyExtractor={item => String(item.id)}
       renderItem={({ item }) => {
-        const { name } = item
+        const { id, name } = item
 
         return (
           <Ripple
-            onPress={handleNavigate}
+            onPress={() => handleNavigate(id)}
             radius={0}
             full
           >
@@ -29,10 +25,19 @@ export default function List ({ handleNavigate }) {
           </Ripple>
         )
       }}
+      ListEmptyComponent={() => (
+        <Content>
+          <Name>Nenhuma marca disponível para esse dispositivo.</Name>
+        </Content>
+      )}
     />
   )
 }
 
 List.propTypes = {
+  data: t.arrayOf(t.shape({
+    id: t.number,
+    name: t.string
+  })).isRequired,
   handleNavigate: t.func.isRequired
 }

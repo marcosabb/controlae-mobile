@@ -13,3 +13,5 @@ export const Name = styled.Text`
   font-size: 14px;
   color: ${theme('colors.text')};
 `
+
+export const Empty = styled.Text``
