@@ -1,18 +1,31 @@
 import React from 'react'
 import t from 'prop-types'
 
+import Loading from '~/components/Loading'
+
 import List from './List'
+
+import useFetch from '~/hooks/useFetch'
 
 import { Container } from './styled'
 
 export default function Devices ({ navigation }) {
-  function handleNavigate () {
-    navigation.navigate('Brands')
+  const { loading, data } = useFetch('devices')
+
+  function handleNavigate (id) {
+    navigation.navigate('Brands', { id })
   }
 
   return (
     <Container>
-      <List handleNavigate={handleNavigate} />
+      {loading && <Loading />}
+
+      {!loading && (
+        <List
+          handleNavigate={handleNavigate}
+          data={data}
+        />
+      )}
     </Container>
   )
 }

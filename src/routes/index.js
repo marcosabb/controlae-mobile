@@ -3,7 +3,10 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color'
 import { StatusBar } from 'react-native'
 import { ThemeContext } from 'styled-components'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
+import {
+  createStackNavigator,
+  CardStyleInterpolators
+} from '@react-navigation/stack'
 
 import Devices from '~/screens/Devices'
 import Brands from '~/screens/Brands'
@@ -32,6 +35,12 @@ export default function Routes () {
       <Stack.Navigator
         initialRouteName='Devices'
         screenOptions={{
+          headerTitleAlign: 'center',
+          headerRight: Toggle,
+          headerBackImage: Back,
+          headerTintColor: theme.colors.text,
+          headerPressColorAndroid: theme.colors.ripple,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           headerStyle: {
             elevation: 0,
             backgroundColor: theme.colors.background
@@ -40,13 +49,7 @@ export default function Routes () {
             fontSize: 24,
             fontWeight: 'bold',
             color: theme.colors.text
-          },
-          headerTitleAlign: 'center',
-          headerBackImage: Back,
-          headerTintColor: theme.colors.text,
-          headerPressColorAndroid: theme.colors.ripple,
-          headerRight: Toggle,
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+          }
         }}
       >
         <Stack.Screen
