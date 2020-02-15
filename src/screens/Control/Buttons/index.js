@@ -5,6 +5,8 @@ import { ThemeContext } from 'styled-components'
 
 import Ripple from '~/components/Ripple'
 
+import { transmit } from '~/services/infrared'
+
 import {
   Wrapper,
   GroupedContainer,
@@ -15,7 +17,7 @@ import {
 
 const size = 56
 
-export function Button ({ icon, label, onPress }) {
+export function Button ({ icon, label, code }) {
   const theme = useContext(ThemeContext)
 
   const color = icon === 'power' ? theme.colors.danger : theme.colors.text
@@ -25,7 +27,7 @@ export function Button ({ icon, label, onPress }) {
       width={size}
       height={size}
       radius={size / 2}
-      onPress={onPress}
+      onPress={() => transmit(code)}
     >
       <Wrapper>
         {icon && <Icon name={icon} size={20} color={color} />}
@@ -43,25 +45,17 @@ Button.defaultProps = {
 Button.propTypes = {
   icon: t.string,
   label: t.string,
-  onPress: t.func.isRequired
+  code: t.string.isRequired
 }
 
 export function Grouped ({ label, buttons }) {
   const { up, down } = buttons
 
-  function handleUp () {
-    up.action()
-  }
-
-  function handleDown () {
-    down.action()
-  }
-
   return (
     <GroupedContainer>
-      <Button icon={up.icon} onPress={handleUp} />
+      <Button icon={up.icon} code={up.code} />
       <Label>{label}</Label>
-      <Button icon={down.icon} onPress={handleDown} />
+      <Button icon={down.icon} code={down.code} />
     </GroupedContainer>
   )
 }
@@ -71,11 +65,13 @@ Grouped.propTypes = {
   buttons: t.shape({
     up: t.shape({
       action: t.func,
-      icon: t.string
+      icon: t.string,
+      code: t.string
     }),
     down: t.shape({
       action: t.func,
-      icon: t.string
+      icon: t.string,
+      code: t.string
     })
   }).isRequired
 }
@@ -83,40 +79,20 @@ Grouped.propTypes = {
 export function Rounded ({ buttons }) {
   const { up, right, down, left, center } = buttons
 
-  function handleUp () {
-    up.action()
-  }
-
-  function handleRight () {
-    right.action()
-  }
-
-  function handleDown () {
-    down.action()
-  }
-
-  function handleLeft () {
-    left.action()
-  }
-
-  function handleCenter () {
-    center.action()
-  }
-
   return (
     <RoundedContainer>
       <RoundedItem>
-        <Button icon={up.icon} onPress={handleUp} />
+        <Button icon={up.icon} code={up.code} />
       </RoundedItem>
 
       <RoundedItem>
-        <Button icon={left.icon} onPress={handleLeft} />
-        <Button label={center.label} onPress={handleCenter} />
-        <Button icon={right.icon} onPress={handleRight} />
+        <Button icon={left.icon} code={left.code} />
+        <Button label={center.label} code={center.code} />
+        <Button icon={right.icon} code={right.code} />
       </RoundedItem>
 
       <RoundedItem>
-        <Button icon={down.icon} onPress={handleDown} />
+        <Button icon={down.icon} code={down.code} />
       </RoundedItem>
     </RoundedContainer>
   )
@@ -126,23 +102,28 @@ Rounded.propTypes = {
   buttons: t.shape({
     up: t.shape({
       action: t.func,
-      icon: t.string
+      icon: t.string,
+      code: t.string
     }),
     right: t.shape({
       action: t.func,
-      icon: t.string
+      icon: t.string,
+      code: t.string
     }),
     down: t.shape({
       action: t.func,
-      icon: t.string
+      icon: t.string,
+      code: t.string
     }),
     left: t.shape({
       action: t.func,
-      icon: t.string
+      icon: t.string,
+      code: t.string
     }),
     center: t.shape({
       action: t.func,
-      label: t.string
+      label: t.string,
+      code: t.string
     })
   }).isRequired
 }
