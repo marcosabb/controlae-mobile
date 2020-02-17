@@ -1,18 +1,13 @@
 import React from 'react'
 import t from 'prop-types'
 
-import Loading from '~/components/Loading'
-
 import Input from './Input'
 import List from './List'
-
-import useFetch from '~/hooks/useFetch'
 
 import { Container } from './styled'
 
 export default function Brands ({ route, navigation }) {
-  const { id } = route.params
-  const { loading, data } = useFetch(`brands/${id}`)
+  const { data } = route.params
 
   function handleNavigate (id) {
     navigation.navigate('Control', { id })
@@ -22,8 +17,7 @@ export default function Brands ({ route, navigation }) {
     <Container>
       <Input />
 
-      {loading && <Loading />}
-      {!loading && <List data={data} handleNavigate={handleNavigate} />}
+      <List data={data} handleNavigate={handleNavigate} />
     </Container>
   )
 }
@@ -31,7 +25,7 @@ export default function Brands ({ route, navigation }) {
 Brands.propTypes = {
   route: t.shape({
     params: t.shape({
-      id: t.number
+      data: t.array
     })
   }).isRequired,
   navigation: t.shape({

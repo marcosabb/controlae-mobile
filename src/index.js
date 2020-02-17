@@ -8,7 +8,7 @@ import theme from './theme'
 
 export default function App () {
   return (
-    <ThemeProvider theme={theme.dark}>
+    <ThemeProvider theme={theme.light}>
       <Routes />
     </ThemeProvider>
   )

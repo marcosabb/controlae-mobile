@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react'
-import changeNavigationBarColor from 'react-native-navigation-bar-color'
+import React, { useContext } from 'react'
 import { StatusBar } from 'react-native'
 import { ThemeContext } from 'styled-components'
 import { NavigationContainer } from '@react-navigation/native'
@@ -20,16 +19,12 @@ const Stack = createStackNavigator()
 export default function Routes () {
   const theme = useContext(ThemeContext)
 
-  useEffect(() => {
-    changeNavigationBarColor('#171822', true)
-  }, [])
-
   return (
     <NavigationContainer>
       <StatusBar
         backgroundColor={theme.colors.background}
-        // barStyle='dark-content'
-        barStyle='light-content'
+        barStyle='dark-content'
+        // barStyle='light-content'
       />
 
       <Stack.Navigator

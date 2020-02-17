@@ -1,19 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import t from 'prop-types'
+
+import api from '~/services/api'
 
 import Loading from '~/components/Loading'
 
-import List from './List'
+import Device from './Device'
 
-import useFetch from '~/hooks/useFetch'
+import { Container, List } from './styled'
 
-import { Container } from './styled'
+const gradients = {
+  Televisão: ['#1e3c72', '#2a5298'],
+  Ventilador: ['#48b1bf', '#06beb6'],
+  'Ar condicionado': ['#eb3349', '#f45c43']
+}
 
 export default function Devices ({ navigation }) {
-  const { loading, data } = useFetch('devices')
+  const [loading, setLoading] = useState(false)
+  const [devices, setDevices] = useState([])
 
-  function handleNavigate (id) {
-    navigation.navigate('Brands', { id })
+  useEffect(() => {
+    async function fetchDevices () {
+      try {
+        setLoading(true)
+
+        const response = await api.get('devices')
+
+        const data = response.data.map(item => ({
+          ...item,
+          gradient: gradients[item._id]
+        }))
+
+        setDevices(data)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchDevices()
+  }, [])
+
+  function handleDevice (data) {
+    navigation.navigate('Brands', { data })
   }
 
   return (
@@ -22,8 +52,19 @@ export default function Devices ({ navigation }) {
 
       {!loading && (
         <List
-          handleNavigate={handleNavigate}
-          data={data}
+          data={devices}
+          keyExtractor={item => item._id}
+          renderItem={({ item }) => {
+            const { _id: name, data, gradient } = item
+
+            return (
+              <Device
+                name={name}
+                gradient={gradient}
+                handleDevice={() => handleDevice(data)}
+              />
+            )
+          }}
         />
       )}
     </Container>

@@ -9,7 +9,6 @@ import { Container, Row } from './styled'
 export default function List ({ data }) {
   return (
     <Container>
-      {console.log(data)}
       {data.map(({ buttons }) => (
         <Row key={v4()}>
           {buttons.map(button => {
