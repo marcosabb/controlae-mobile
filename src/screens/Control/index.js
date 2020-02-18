@@ -1,22 +1,24 @@
 import React from 'react'
+import t from 'prop-types'
 
-import Loading from '~/components/Loading'
-
-import List from './List'
-
-import useFetch from '~/hooks/useFetch'
+import Television from './Television'
 
 import { Container } from './styled'
 
-export default function Control () {
-  const { loading, data } = useFetch('controls')
-
-  const rows = (data[0] && data[0].rows) || []
+export default function Control ({ route }) {
+  const { data } = route.params
 
   return (
     <Container>
-      {loading && <Loading />}
-      {(!loading || !data.length) && <List data={rows} />}
+      {data.type === 'tv' && <Television data={data} />}
     </Container>
   )
+}
+
+Control.propTypes = {
+  route: t.shape({
+    params: t.shape({
+      data: t.shape()
+    })
+  }).isRequired
 }

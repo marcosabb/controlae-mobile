@@ -37,13 +37,13 @@ export default function Brands ({ route, navigation }) {
         data={filtered}
         keyExtractor={item => item._id}
         renderItem={({ item }) => {
-          const { name } = item
+          const { brand, control } = item
 
           return (
             <Item>
               <Brand
-                name={name}
-                handleBrand={() => handleBrand()}
+                name={brand}
+                handleBrand={() => handleBrand(control)}
               />
             </Item>
           )
@@ -63,7 +63,10 @@ export default function Brands ({ route, navigation }) {
 Brands.propTypes = {
   route: t.shape({
     params: t.shape({
-      data: t.array
+      data: t.arrayOf(t.shape({
+        _id: t.string,
+        brand: t.string
+      }))
     })
   }).isRequired,
   navigation: t.shape({

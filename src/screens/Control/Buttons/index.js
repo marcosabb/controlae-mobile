@@ -48,8 +48,8 @@ Button.propTypes = {
   code: t.string.isRequired
 }
 
-export function Grouped ({ label, buttons }) {
-  const { up, down } = buttons
+export function Grouped ({ label, items }) {
+  const { up, down } = items
 
   return (
     <GroupedContainer>
@@ -62,7 +62,7 @@ export function Grouped ({ label, buttons }) {
 
 Grouped.propTypes = {
   label: t.string.isRequired,
-  buttons: t.shape({
+  items: t.shape({
     up: t.shape({
       action: t.func,
       icon: t.string,
@@ -76,8 +76,8 @@ Grouped.propTypes = {
   }).isRequired
 }
 
-export function Rounded ({ buttons }) {
-  const { up, right, down, left, center } = buttons
+export function Rounded ({ items }) {
+  const { up, right, down, left, center } = items
 
   return (
     <RoundedContainer>
@@ -99,7 +99,7 @@ export function Rounded ({ buttons }) {
 }
 
 Rounded.propTypes = {
-  buttons: t.shape({
+  items: t.shape({
     up: t.shape({
       action: t.func,
       icon: t.string,
