@@ -35,6 +35,7 @@ export default function Ripple ({
 
 Ripple.defaultProps = {
   full: false,
+  radius: 0,
   marginTop: 0,
   marginRight: 0,
   marginBottom: 0,

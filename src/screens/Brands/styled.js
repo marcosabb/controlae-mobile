@@ -6,3 +6,15 @@ export const Container = styled.View`
   padding-top: ${theme('spacing.default')};
   background: ${theme('colors.background')};
 `
+
+export const List = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false
+})``
+
+export const Item = styled.View``
+
+export const Empty = styled.Text`
+  padding: ${theme('spacing.default')};
+  font-size: 14px;
+  color: ${theme('colors.placeholder')};
+`

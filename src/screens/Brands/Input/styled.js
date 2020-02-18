@@ -24,5 +24,6 @@ export const Field = styled.TextInput.attrs(({ theme }) => ({
   flex: 1;
   padding: 0;
   margin-left: ${theme('spacing.sm')};
+  font-size: 14px;
   color: ${theme('colors.text')};
 `
