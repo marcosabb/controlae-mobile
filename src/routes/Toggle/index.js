@@ -6,9 +6,9 @@ import Ripple from '~/components/Ripple'
 
 import { Content } from './styled'
 
-export default function Toggle ({ tintColor }) {
-  const size = 40
+const size = 40
 
+export default function Toggle ({ tintColor }) {
   return (
     <Ripple
       onPress={() => {}}

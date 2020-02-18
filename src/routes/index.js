@@ -23,16 +23,18 @@ export default function Routes () {
     <NavigationContainer>
       <StatusBar
         backgroundColor={theme.colors.background}
-        barStyle='dark-content'
-        // barStyle='light-content'
+        // barStyle='dark-content'
+        barStyle='light-content'
       />
 
       <Stack.Navigator
         initialRouteName='Devices'
         screenOptions={{
           headerTitleAlign: 'center',
-          headerRight: Toggle,
-          headerBackImage: Back,
+          headerRight: ({ tintColor }) => (
+            <Toggle tintColor={tintColor} />
+          ),
+          headerBackImage: ({ tintColor }) => <Back tintColor={tintColor} />,
           headerTintColor: theme.colors.text,
           headerPressColorAndroid: theme.colors.ripple,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,

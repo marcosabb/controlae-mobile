@@ -24,7 +24,7 @@ export default function Devices ({ navigation }) {
       try {
         setLoading(true)
 
-        const response = await api.get('devices')
+        const response = await api.get('client/devices')
 
         const data = response.data.map(item => ({
           ...item,

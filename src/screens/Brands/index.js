@@ -15,8 +15,8 @@ export default function Brands ({ route, navigation }) {
   useEffect(() => {
     setFiltered(
       search
-        ? data.filter(({ name }) =>
-          name.toLowerCase().includes(search.toLowerCase())
+        ? data.filter(({ brand }) =>
+          brand.toLowerCase().includes(search.toLowerCase())
         )
         : data
     )
@@ -32,7 +32,6 @@ export default function Brands ({ route, navigation }) {
         value={search}
         handleChange={setSearch}
       />
-
       <List
         data={filtered}
         keyExtractor={item => item._id}

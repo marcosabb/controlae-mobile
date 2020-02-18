@@ -24,6 +24,10 @@ module.exports = {
     'react'
   ],
   rules: {
+    'react/display-name': 0,
+    'react/prop-types': [2, {
+      ignore: ['tintColor']
+    }]
   },
   settings: {
     react: {

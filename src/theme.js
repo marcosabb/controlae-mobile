@@ -1,4 +1,6 @@
-const shared = (colors) => ({
+const shared = ({ title, ...colors }) => ({
+  title,
+
   colors: {
     danger: '#e74c3c',
     white: '#fff',
@@ -22,20 +24,20 @@ const shared = (colors) => ({
   }
 })
 
-export default {
-  light: shared({
-    background: '#fff',
-    text: '#171822',
-    ripple: 'rgba(23, 24, 34, .08)',
-    placeholder: 'rgba(23, 24, 34, .5)',
-    grey: '#f1f3f6'
-  }),
+export const light = shared({
+  title: 'light',
+  background: '#fff',
+  text: '#171822',
+  ripple: 'rgba(23, 24, 34, .08)',
+  placeholder: 'rgba(23, 24, 34, .5)',
+  grey: '#f1f3f6'
+})
 
-  dark: shared({
-    background: '#171822',
-    text: '#fff',
-    ripple: 'rgba(255, 255, 255, .08)',
-    placeholder: 'rgba(255, 255, 255, .5)',
-    grey: '#212330'
-  })
-}
+export const dark = shared({
+  title: 'dark',
+  background: '#171822',
+  text: '#fff',
+  ripple: 'rgba(255, 255, 255, .08)',
+  placeholder: 'rgba(255, 255, 255, .5)',
+  grey: '#212330'
+})
