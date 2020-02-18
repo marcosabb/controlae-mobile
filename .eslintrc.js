@@ -9,6 +9,7 @@ module.exports = {
     'standard-react'
   ],
   globals: {
+    __DEV__: true,
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
   },

@@ -53,7 +53,8 @@
     "jest": "^24.9.0",
     "lint-staged": "^10.0.7",
     "metro-react-native-babel-preset": "^0.56.0",
-    "react-test-renderer": "16.9.0"
+    "react-test-renderer": "16.9.0",
+    "reactotron-react-native": "^4.0.3"
   },
   "jest": {
     "preset": "react-native"

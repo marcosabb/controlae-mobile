@@ -23,8 +23,7 @@ export default function Routes () {
     <NavigationContainer>
       <StatusBar
         backgroundColor={theme.colors.background}
-        // barStyle='dark-content'
-        barStyle='light-content'
+        barStyle={theme.colors.status}
       />
 
       <Stack.Navigator

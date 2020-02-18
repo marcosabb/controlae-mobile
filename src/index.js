@@ -1,14 +1,15 @@
 import 'react-native-gesture-handler'
+import '~/config/reactotron'
 
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
 
 import Routes from './routes'
-import { dark } from './theme'
+
+import { ThemeProvider } from '~/contexts/theme'
 
 export default function App () {
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider>
       <Routes />
     </ThemeProvider>
   )

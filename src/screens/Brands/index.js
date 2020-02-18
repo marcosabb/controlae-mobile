@@ -32,6 +32,7 @@ export default function Brands ({ route, navigation }) {
         value={search}
         handleChange={setSearch}
       />
+
       <List
         data={filtered}
         keyExtractor={item => item._id}
