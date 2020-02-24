@@ -13,7 +13,7 @@ function ThemeProvider ({ children }) {
   useEffect(() => {
     async function fetchStorage () {
       try {
-        const storage = await AsyncStorage.getItem('@controlae_dark')
+        const storage = await AsyncStorage.getItem('@controlae:dark')
 
         if (storage) {
           setDark(JSON.parse(storage))
@@ -32,7 +32,7 @@ function ThemeProvider ({ children }) {
     setDark(!dark)
 
     try {
-      await AsyncStorage.setItem('@controlae_dark', JSON.stringify(!dark))
+      await AsyncStorage.setItem('@controlae:dark', JSON.stringify(!dark))
     } catch (error) {
       console.log(error)
     }
