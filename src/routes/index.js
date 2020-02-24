@@ -40,7 +40,7 @@ export default function Routes () {
             backgroundColor: colors.background
           },
           headerTitleStyle: {
-            fontSize: 24,
+            fontSize: 20,
             fontWeight: 'bold',
             color: colors.text
           }

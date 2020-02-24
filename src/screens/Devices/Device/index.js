@@ -15,7 +15,7 @@ export default function Device ({ name, gradient, handleDevice }) {
       onPress={handleDevice}
       width={width}
       height={200}
-      radius={16}
+      radius={4}
       marginBottom={20}
     >
       <Container gradient={gradient}>
