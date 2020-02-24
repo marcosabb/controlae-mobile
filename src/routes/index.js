@@ -12,39 +12,37 @@ import Brands from '~/screens/Brands'
 import Control from '~/screens/Control'
 
 import Back from './Back'
-import Toggle from './Toggle'
+import Lamp from './Lamp'
 
 const Stack = createStackNavigator()
 
 export default function Routes () {
-  const theme = useContext(ThemeContext)
+  const { colors } = useContext(ThemeContext)
 
   return (
     <NavigationContainer>
       <StatusBar
-        backgroundColor={theme.colors.background}
-        barStyle={theme.colors.status}
+        backgroundColor={colors.background}
+        barStyle={colors.status}
       />
 
       <Stack.Navigator
         initialRouteName='Devices'
         screenOptions={{
           headerTitleAlign: 'center',
-          headerRight: ({ tintColor }) => (
-            <Toggle tintColor={tintColor} />
-          ),
           headerBackImage: ({ tintColor }) => <Back tintColor={tintColor} />,
-          headerTintColor: theme.colors.text,
-          headerPressColorAndroid: theme.colors.ripple,
+          headerRight: ({ tintColor }) => <Lamp tintColor={tintColor} />,
+          headerTintColor: colors.text,
+          headerPressColorAndroid: colors.ripple,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           headerStyle: {
             elevation: 0,
-            backgroundColor: theme.colors.background
+            backgroundColor: colors.background
           },
           headerTitleStyle: {
             fontSize: 24,
             fontWeight: 'bold',
-            color: theme.colors.text
+            color: colors.text
           }
         }}
       >

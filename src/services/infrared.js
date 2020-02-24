@@ -1,8 +1,8 @@
-import IRManager from 'react-native-ir-manager'
+import { hasIrEmitter, transmitProntoCode } from 'react-native-ir-manager'
 
 export async function transmit (code) {
   try {
-    await IRManager.transmitProntoCode(code)
+    if (await hasIrEmitter()) await transmitProntoCode(code)
   } catch (error) {
     console.log(error)
   }

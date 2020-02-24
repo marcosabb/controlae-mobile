@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import t from 'prop-types'
 
 import api from '~/services/api'
@@ -42,9 +42,9 @@ export default function Devices ({ navigation }) {
     fetchDevices()
   }, [])
 
-  function handleDevice (data) {
+  const handleDevice = useCallback((data) => {
     navigation.navigate('Brands', { data })
-  }
+  }, [])
 
   return (
     <Container>

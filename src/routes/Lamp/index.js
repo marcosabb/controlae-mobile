@@ -10,7 +10,7 @@ import { Content } from './styled'
 
 const size = 40
 
-export default function Toggle ({ tintColor }) {
+export default function Lamp ({ tintColor }) {
   const { toggleTheme } = useTheme()
 
   return (
@@ -28,6 +28,6 @@ export default function Toggle ({ tintColor }) {
   )
 }
 
-Toggle.propTypes = {
+Lamp.propTypes = {
   tintColor: t.string.isRequired
 }

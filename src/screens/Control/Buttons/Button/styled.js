@@ -1,12 +1,18 @@
 import styled from 'styled-components/native'
 import { theme } from 'styled-tools'
 
-export const Wrapper = styled.View`
+export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
   background: ${theme('colors.grey')};
 `
+
+export const NumericContainer = styled.View``
+
+export const NumericWrapper = styled.View``
+
+export const Row = styled.View``
 
 export const GroupedContainer = styled.View`
   align-items: center;
