@@ -9,17 +9,17 @@ export default function Rounded ({ up, right, down, left, center }) {
   return (
     <Container>
       <Row>
-        <Button icon='chevron-up' code={up} />
+        <Button icon='up' code={up} />
       </Row>
 
       <Row>
-        <Button icon='chevron-left' code={left} />
+        <Button icon='left' code={left} />
         <Button label='ok' code={center} />
-        <Button icon='chevron-right' code={right} />
+        <Button icon='right' code={right} />
       </Row>
 
       <Row>
-        <Button icon='chevron-down' code={down} />
+        <Button icon='down' code={down} />
       </Row>
     </Container>
   )

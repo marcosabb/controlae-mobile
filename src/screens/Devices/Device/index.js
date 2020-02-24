@@ -12,7 +12,7 @@ const width = (Dimensions.get('window').width / 2) - offset
 export default function Device ({ name, gradient, handleDevice }) {
   return (
     <Ripple
-      onPress={handleDevice}
+      handlePress={handleDevice}
       width={width}
       height={200}
       radius={4}

@@ -15,7 +15,7 @@ export default function Lamp ({ tintColor }) {
 
   return (
     <Ripple
-      onPress={toggleTheme}
+      handlePress={toggleTheme}
       width={size}
       height={size}
       radius={size / 2}

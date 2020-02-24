@@ -4,7 +4,7 @@ import t from 'prop-types'
 import { Container, Button } from './styled'
 
 export default function Ripple ({
-  onPress,
+  handlePress,
   full,
   width,
   height,
@@ -26,7 +26,7 @@ export default function Ripple ({
       marginBottom={marginBottom}
       marginLeft={marginLeft}
     >
-      <Button onPress={onPress}>
+      <Button onPress={handlePress}>
         {children}
       </Button>
     </Container>
@@ -43,7 +43,7 @@ Ripple.defaultProps = {
 }
 
 Ripple.propTypes = {
-  onPress: t.func.isRequired,
+  handlePress: t.func.isRequired,
   full: t.bool,
   width: t.number,
   height: t.number,

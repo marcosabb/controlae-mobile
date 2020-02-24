@@ -7,7 +7,7 @@ import { Container, Name } from './styled'
 
 export default function Brand ({ name, handleBrand }) {
   return (
-    <Ripple onPress={handleBrand} full>
+    <Ripple handlePress={handleBrand} full>
       <Container>
         <Name>{name}</Name>
       </Container>
