@@ -16,7 +16,7 @@
 
 ### Prerequisites
 
-- You'll need to run the backend server, see these [instructions](https://github.com/marcosabb/controlae-backend#getting-started).
+- You'll need to run the backend server, follow these [instructions](https://github.com/marcosabb/controlae-backend#getting-started).
 
 ### Installing
 
