@@ -8,11 +8,15 @@
   <img src=".github/screens.png" alt="Controlaê screens">
 </p>
 
+## Installer
+
+[Android .apk installer](https://drive.google.com)
+
 ## Getting started
 
 ### Prerequisites
 
-- You'll need to run the backend server, see this instructions.
+- You'll need to run the backend server, see this [instructions]().
 
 ### Installing
 
