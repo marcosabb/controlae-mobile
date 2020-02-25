@@ -16,19 +16,19 @@
 
 ### Prerequisites
 
-- You'll need to run the backend server, see this [instructions]().
+- You'll need to run the backend server, see this [instructions](https://github.com/marcosabb/controlae-backend#getting-started).
 
 ### Installing
 
 - Clone this repo (`git clone git@github.com:marcosabb/controlae-mobile.git`)
 - Install dependencies (`yarn`)
 - Create a `.env` file and copy and paste the content of `.env.example` file
-- Install app on android device or emulator (`yarn android`)
+- Install app on Android device or emulator (`yarn android`)
 - Start app (`yarn start`)
 
 ## Contribute
 
-- Fork this repo (`git clone git@github.com:marcosabb/controlae-mobile.git`)
+- Fork this repo
 - Create a new branch (`git checkout -b feature/awesome-feature`)
 - Commit your changes (`git commit -a`)
 - Push to the branch (`git push origin feature/awesome-feature`)
