@@ -30,7 +30,8 @@
 
 - Fork this repo
 - Create a new branch (`git checkout -b feature/awesome-feature`)
-- Commit your changes (`git commit -a`)
+- Add you changes (`git add .`)
+- Commit your changes (`git commit`)
 - Push to the branch (`git push origin feature/awesome-feature`)
 - Create a pull request
 
