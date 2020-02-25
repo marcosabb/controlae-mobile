@@ -10,6 +10,7 @@ export const Container = styled.View`
   padding: 0 ${theme('spacing.sm')};
   background: ${theme('colors.grey')};
   border-radius: ${theme('radius.xs')};
+  border: ${theme('border.primary')};
 `
 
 export const Icon = styled(Feather).attrs(({ theme }) => ({

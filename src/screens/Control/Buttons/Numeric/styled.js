@@ -16,7 +16,7 @@ export const Wrapper = styled.ScrollView`
   width: ${width}px;
   padding: ${theme('spacing.default')};
   background: ${theme('colors.background')};
-  border: 1px solid ${theme('colors.grey')};
+  border: ${theme('border.secondary')};
   border-radius: ${theme('radius.default')};
 `
 
