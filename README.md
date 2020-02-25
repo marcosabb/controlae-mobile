@@ -22,7 +22,7 @@
 
 - Clone this repo (`git clone git@github.com:marcosabb/controlae-mobile.git`)
 - Install dependencies (`yarn`)
-- Create a `.env` file and copy and paste the content of `.env.example` file
+- Create a `.env` file and copy/paste the content of `.env.example` file
 - Install app on Android device or emulator (`yarn android`)
 - Start app (`yarn start`)
 
