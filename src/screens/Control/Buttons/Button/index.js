@@ -62,7 +62,7 @@ Button.defaultProps = {
   icon: null,
   label: null,
   code: null,
-  handlePress: () => {}
+  handlePress: null
 }
 
 Button.propTypes = {
