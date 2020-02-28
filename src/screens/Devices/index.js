@@ -9,7 +9,7 @@ import Device from './Device'
 
 import { Container, List } from './styled'
 
-const gradients = {
+const gradient = {
   Televisão: ['#1e3c72', '#2a5298'],
   Ventilador: ['#48b1bf', '#06beb6'],
   'Ar condicionado': ['#eb3349', '#f45c43']
@@ -28,7 +28,7 @@ export default function Devices ({ navigation }) {
 
         const data = response.data.map(item => ({
           ...item,
-          gradient: gradients[item._id]
+          gradient: gradient[item._id]
         }))
 
         setDevices(data)
@@ -42,8 +42,8 @@ export default function Devices ({ navigation }) {
     fetchDevices()
   }, [])
 
-  const handleDevice = useCallback((data) => {
-    navigation.navigate('Brands', { data })
+  const handleDevice = useCallback((type, data) => {
+    navigation.navigate('Brands', { type, data })
   }, [])
 
   return (
@@ -55,13 +55,13 @@ export default function Devices ({ navigation }) {
           data={devices}
           keyExtractor={item => item._id}
           renderItem={({ item }) => {
-            const { _id: name, data, gradient } = item
+            const { _id: type, data, gradient } = item
 
             return (
               <Device
-                name={name}
+                name={type}
                 gradient={gradient}
-                handleDevice={() => handleDevice(data)}
+                handleDevice={() => handleDevice(type, data)}
               />
             )
           }}

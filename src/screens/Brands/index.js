@@ -7,7 +7,7 @@ import Brand from './Brand'
 import { Container, List, Item, Empty } from './styled'
 
 export default function Brands ({ route, navigation }) {
-  const { data } = route.params
+  const { type, data } = route.params
 
   const [search, setSearch] = useState('')
   const [filtered, setFiltered] = useState(data)
@@ -15,15 +15,15 @@ export default function Brands ({ route, navigation }) {
   useEffect(() => {
     setFiltered(
       search
-        ? data.filter(({ brand }) =>
+        ? data.filter(({ brand }) => (
           brand.toLowerCase().includes(search.toLowerCase())
-        )
+        ))
         : data
     )
   }, [search])
 
   const handleBrand = useCallback((data) => {
-    navigation.navigate('Control', { data })
+    navigation.navigate('Control', { type, data })
   }, [])
 
   return (
@@ -63,6 +63,7 @@ export default function Brands ({ route, navigation }) {
 Brands.propTypes = {
   route: t.shape({
     params: t.shape({
+      type: t.string,
       data: t.arrayOf(t.shape({
         _id: t.string,
         brand: t.string

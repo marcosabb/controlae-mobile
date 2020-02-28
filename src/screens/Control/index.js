@@ -5,12 +5,16 @@ import Television from './Television'
 
 import { Container } from './styled'
 
+const TV = 'Televisão'
+
 export default function Control ({ route }) {
-  const { data } = route.params
+  const { type, data } = route.params
+
+  console.log(type)
 
   return (
     <Container>
-      {data.type === 'tv' && <Television data={data} />}
+      {type === TV && <Television data={data} />}
     </Container>
   )
 }
@@ -18,6 +22,7 @@ export default function Control ({ route }) {
 Control.propTypes = {
   route: t.shape({
     params: t.shape({
+      type: t.string,
       data: t.shape()
     })
   }).isRequired
