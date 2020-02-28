@@ -10,8 +10,6 @@ const TV = 'Televisão'
 export default function Control ({ route }) {
   const { type, data } = route.params
 
-  console.log(type)
-
   return (
     <Container>
       {type === TV && <Television data={data} />}
