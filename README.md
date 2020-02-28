@@ -10,7 +10,7 @@
 
 ## Installer
 
-[Android .apk installer](https://drive.google.com)
+[Android .apk installer](https://drive.google.com/file/d/1mMyxLCcGQ9FuWN0hqIjuXteOPBfB5cON/view?usp=sharing)
 
 ## Getting started
 
