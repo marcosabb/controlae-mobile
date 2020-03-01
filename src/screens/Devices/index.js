@@ -10,9 +10,9 @@ import Device from './Device'
 import { Container, List } from './styled'
 
 const gradient = {
-  Televisão: ['#1e3c72', '#2a5298'],
+  Televisão: ['#eb3349', '#f45c43'],
   Ventilador: ['#48b1bf', '#06beb6'],
-  'Ar condicionado': ['#eb3349', '#f45c43']
+  'Ar condicionado': ['#1e3c72', '#2a5298']
 }
 
 export default function Devices ({ navigation }) {
